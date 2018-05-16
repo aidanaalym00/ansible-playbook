@@ -1,0 +1,19 @@
+# pormetheus server ip
+
+prometheus_ip: 192.168.14.50
+
+# grafana dashboard password
+
+grafana_admin_passowrd: "admin"
+
+# Enable ceph_exporter or not
+
+enable_ceph: true
+
+# ceph.conf and ceph keyring location
+
+ceph_conf: "/etc/ceph"
+
+# CIDR for agents to listen on
+
+listen_cidr: "0.0.0.0/0"

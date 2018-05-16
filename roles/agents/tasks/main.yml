@@ -1,0 +1,32 @@
+- name: Create cadvisor
+  docker_container:
+    name: cadvisor
+    image: google/cadvisor
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    state: started
+    recreate: yes
+    restart_policy: always
+    ports:
+      - "{{ (ansible_all_ipv4_addresses | ipaddr(listen_cidr))[0] }}:8080:8080"
+    exposed_ports:
+      - 8080
+
+- name: Create node-exporter
+  docker_container:
+    name: node-exporter
+    image: prom/node-exporter
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    state: started
+    recreate: yes
+    restart_policy: always
+    exposed_ports:
+      - 9100
+    ports:
+      - "{{ (ansible_all_ipv4_addresses | ipaddr(listen_cidr))[0] }}:9100:9100"

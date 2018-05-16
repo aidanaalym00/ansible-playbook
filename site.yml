@@ -1,0 +1,16 @@
+- name: Install monitor agent
+  hosts: agent
+  become: yes
+  become_method: sudo
+  serial: 0
+  roles:
+    - role: agents
+
+- name: Install monitor server
+  hosts: server
+  become: yes
+  become_method: sudo
+  serial: 0
+  gather_facts: True
+  roles:
+    - role: server
