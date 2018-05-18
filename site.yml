@@ -1,3 +1,10 @@
+- name: Configure hosts
+  hosts: all
+  become: yes
+  become_method: sudo
+  roles:
+    - role: bootstrap
+
 - name: Install monitor agent
   hosts: agent
   become: yes
