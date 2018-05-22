@@ -23,4 +23,4 @@ With an optional install of [Ceph Exporter](https://github.com/digitalocean/ceph
 
 3. Copy hosts.example and fill in hosts IPs or hostname.
 
-4. Run ```ansible-playbook -i hosts site.yml``` to deploy
+4. Run ```ansible-playbook -i hosts site.yml -e "promstack_action=deploy"``` to deploy
