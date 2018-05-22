@@ -1,0 +1,50 @@
+---
+- name: Remove cadvisor
+  docker_container:
+    name: cadvisor
+    image: google/cadvisor
+    state: absent
+
+- name: Remove ceph_exporter
+  docker_container:
+    name: ceph_exporter
+    image: digitalocean/ceph_exporter
+    state: absent
+
+- name: Remove prometheus
+  docker_container:
+    name: prometheus
+    image: prom/prometheus
+    state: absent
+
+- name: Remove node-exporter
+  docker_container:
+    name: node-exporter
+    image: prom/node-exporter
+    state: absent
+
+- name: Remove grafana
+  docker_container:
+    name: grafana
+    image: grafana/grafana
+    state: absent
+
+- name: Remove prometheus config
+  file:
+    state: absent
+    path: /mon_volume/prometheus/prometheus.yml
+
+- name: Remove prometheus_data volume
+  docker_volume:
+    name: prometheus_data
+    state: absent
+
+- name: Remove grafana_data volume
+  docker_volume:
+    name: grafana_data
+    state: absent  
+
+- name: Removes directory
+  file:
+    path: /mon_volume/prometheus
+    state: absent

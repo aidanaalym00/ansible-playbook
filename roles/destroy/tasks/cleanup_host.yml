@@ -1,0 +1,18 @@
+---
+- name: Install pip dependencies
+  pip: 
+    name: docker-py
+    state: absent
+
+- name: Remove Docker
+  apt:
+    name: docker-ce
+    state: absent
+    update_cache: True
+    install_recommends: False
+
+- name: Remove APT repository
+  apt_repository:
+    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} edge"
+    state: absent
+    update_cache: True
