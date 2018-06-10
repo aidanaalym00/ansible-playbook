@@ -1,5 +1,5 @@
 ---
-- name: Install pip dependencies
+- name: Remove pip dependencies
   pip: 
     name: docker-py
     state: absent
