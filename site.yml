@@ -5,7 +5,7 @@
   roles:
     - role: bootstrap
 
-- name: Install monitor agent
+- name: Installing monitor agent
   hosts: agent
   become: yes
   become_method: sudo
@@ -13,7 +13,7 @@
   roles:
     - role: agents
 
-- name: Install monitor server
+- name: Installing monitor server
   hosts: server
   become: yes
   become_method: sudo
