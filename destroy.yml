@@ -1,4 +1,4 @@
-- name: Destroy deployment
+- name: Destroy deployments
   hosts: all
   become: yes
   become_method: sudo
