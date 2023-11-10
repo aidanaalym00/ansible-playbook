@@ -16,7 +16,17 @@
     - ca-certificates
     - software-properties-common
     - cron
-    - python-pip
+
+- name: Install Python pip
+  apt:
+    name: python3-pip  # Adjust the package name if needed
+    state: present
+    update_cache: yes
+
+- name: Install pip dependencies
+  pip: 
+    name: docker-py
+
 
 - name: Add Docker apt key.
   apt_key:
@@ -33,11 +43,9 @@
 
 - name: Install Docker
   apt:
-    name: "docker-ce"
+    name: "docker.io"
     state: "present"
     update_cache: True
     install_recommends: False
 
-- name: Install pip dependencies
-  pip: 
-    name: docker-py
+

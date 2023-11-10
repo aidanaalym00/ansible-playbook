@@ -1,6 +1,6 @@
-# pormetheus server ip
 
-prometheus_ip: 192.168.14.50
+# pormetheus server ip
+prometheus_ip: "127.0.0.1"
 
 # grafana dashboard password
 

@@ -20,7 +20,7 @@
 
 - name: create prometheus_data
   command: docker volume create --name prometheus_data
-  when: prometheus_data_exists|failed
+  when: prometheus_data_exists.failed
 
 - name: check if grafana_data exists
   command: docker volume inspect grafana_data
@@ -29,7 +29,7 @@
 
 - name: create grafana_data
   command: docker volume create --name grafana_data
-  when: grafana_data_exists|failed
+  when: grafana_data_exists.failed
 
 - name: Create cadvisor
   docker_container:
@@ -108,4 +108,4 @@
       - "{{ (ansible_all_ipv4_addresses | ipaddr(listen_cidr))[0] }}:3000:3000"
     env:
       GF_SECURITY_ADMIN_PASSWORD: "{{ grafana_admin_passowrd }}"
-      GF_USERS_ALLOW_SIGN_UP: false
+      GF_USERS_ALLOW_SIGN_UP: "false"
