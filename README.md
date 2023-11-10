@@ -1,6 +1,3 @@
-# promstack-ansible
-
-## Status
 
 This playbook enable user to deploy a basic monitoring stack based on:
 
@@ -17,13 +14,9 @@ With an optional install of [Ceph Exporter](https://github.com/digitalocean/ceph
 
 ## Usage
 
-1. Copy group_vars/all.yml.sample to group_vars/all.yml
-
-2. Fill in variables based on deployment enviornment.
-
-3. Copy hosts.example and fill in hosts IPs or hostname.
-
-4. Run ```ansible-playbook -i hosts site.yml -e "promstack_action=deploy"``` to deploy
+1. Fill in variables based on deployment enviornment: group_vars/all.yml
+2. Fill in hosts IPs or hostname.
+3. Run ```ansible-playbook -i hosts site.yml -e "promstack_action=deploy"``` to deploy
 
 ## Remove Deployment
 
