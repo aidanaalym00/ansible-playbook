@@ -1,5 +1,5 @@
 [server]
-localhost ansible_connection=local
+localhost ansible_connection=local     # master
 
 [agent]
-172.31.19.19
+172.31.19.19        #slave
